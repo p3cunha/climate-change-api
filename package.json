@@ -1,0 +1,25 @@
+{
+  "name": "climate-change-api",
+  "version": "1.0.0",
+  "description": "API that colect news of various webpages related to climate change",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/p3cunha/climate-change-api.git"
+  },
+  "author": "p3cunha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/p3cunha/climate-change-api/issues"
+  },
+  "homepage": "https://github.com/p3cunha/climate-change-api#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1"
+  }
+}
