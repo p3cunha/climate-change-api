@@ -1,7 +1,7 @@
-const PORT = process.env.PORT || 8000;
 const express = require("express");
 const { axiosAbstraction } = require('./controller.js');
 const { newsPapers } = require('./service.js');
+const PORT = process.env.PORT || 8000;
 
 const app = express();
 const articles = new Array();
