@@ -1,7 +1,29 @@
 const PORT = process.env.PORT || 8000;
 const express = require("express");
-const { axiosAbstraction } = require('./controller.js');
+const axios = require("axios");
+const cheerio = require("cheerio");
 const { newsPapers } = require('./service.js');
+
+const axiosAbstraction = (newsPaper, storage, res) => {
+    axios
+        .get(newsPaper.address)
+        .then((response) => {
+            const html = response.data;
+            const $ = cheerio.load(html);
+            $('a:contains("climate")', html).each(function () {
+                const title = $(this).text();
+                const url = $(this).attr("href");
+                storage.push({
+                    title,
+                    url: newsPaper.base + url,
+                    source: newsPaper.name,
+                });
+            });
+            res?.json(storage);
+        })
+        .catch((err) => console.log(err));
+}
+
 const app = express();
 
 const articles = new Array();
